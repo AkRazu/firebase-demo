@@ -10,7 +10,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 import { useNavigate } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const provider = new GoogleAuthProvider();
 
@@ -44,17 +44,17 @@ const SignUp = () => {
   };
 
   const signuphandel = (event) => {
+    toast.success('Successfully created!');
     event.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        toast.success('User Created');
-        navigate('/home')
+        console.log(userCredential);
+        toast.success('Successfully created!');
+          navigate('/home')
       })
       .catch((error) => {
-        toast.error(error,{id:'error'})
-        // ..
+        // toast.error(error);
       });
-    console.log(email);
   };
   return (
     <div className="w-25 mx-auto my-5 shadow-sm p-4 rounded-sm">
@@ -101,7 +101,7 @@ const SignUp = () => {
             <span>
               <img style={{ width: "30px" }} src={glogo} alt="" />
             </span>
-            Login with Google
+            Sign Up with Google
           </button>
         )}
       </div>
