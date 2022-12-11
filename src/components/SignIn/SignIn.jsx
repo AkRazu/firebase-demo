@@ -25,7 +25,8 @@ const SignIn = () => {
   });
     }
   return (
-    <div className="w-25 mx-auto my-5">
+    <div className="w-25 mx-auto my-5 shadow-sm p-4 rounded-sm">
+        <h1 className="text-center">Log In</h1>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -42,7 +43,7 @@ const SignIn = () => {
       </Form>
       <div className="d-flex justify-content-center my-4">
         <span>Need an account? </span>
-        <Link>SIGN UP</Link>
+        <Link to='/SignUp' >SIGN UP</Link>
       </div>
       <hr />
       <div>

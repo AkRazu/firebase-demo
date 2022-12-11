@@ -1,20 +1,16 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { auth } from '../firebase/firebase.init';
-import logo from '../images/profile.png'
 const Home = () => {
     const [user ,setUser] = useState({});
-    // const [userImg ,setUserImg] = useState({});
     useEffect(()=>{
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 console.log(user);
                 const userName = user;
               setUser(userName);
-              // ...
             } else {
-              // User is signed out
-              // ...
+                setUser({});
             }
           });
     },[])
